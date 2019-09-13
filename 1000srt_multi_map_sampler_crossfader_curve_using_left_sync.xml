@@ -1,0 +1,35 @@
+<midi app=" 2.2.2.03">
+<!-- Button assignment for toggling -->
+    <control channel="1" event_type="Note On" control="88">
+        <userio event="click">
+            <modifier_3>
+                <translation action_on="any" behaviour="explicit"/>
+            </modifier_3>
+        </userio>
+    </control>
+   
+    <control channel="7" event_type="Control Change" control="3">
+        <case>
+            <condition>
+                <modifier_3 operator="equal" cmp_value="off"/>
+            </condition>
+        <userio event="click">
+            <sample_player_volume deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </sample_player_volume>
+        </userio>
+        </case>
+
+        <case>
+            <condition>
+                <modifier_3 operator="equal" cmp_value="on"/>
+            </condition>
+        <userio event="click">
+            <crossfader_curve deck_set="Default" deck_id="0" slot_id="0">
+                <translation action_on="any" behaviour="explicit"/>
+            </crossfader_curve>
+        </userio>
+        </case>
+    </control>
+
+</midi>
